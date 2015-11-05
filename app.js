@@ -1,5 +1,6 @@
 $(document).ready(function(){
-//search and filter stuff          
+//search and filter stuff   
+     
   $(document).keypress(function(e) {
     if(e.which == 13) {
        var filter = $('#sample6').val();
@@ -27,14 +28,12 @@ $(document).ready(function(){
  window.onload = function() {
 //define users to loop over; set up vars for json response
   var users = ["freecodecamp", "storbeck", "medrybw", "justin", "flosd","RobotCaleb","imaqtpie","noobs2ninjas","goldglove"];
- 
+ var htmlStart = "";  
 
   $.each(users, function(index, value) {
          
-          var name, logo, streaming, desc, link, displayName; 
+    var name, logo, streaming, desc, link, displayName; 
    
-
-
     // loop over array of users & get user info for each user
     $.getJSON("https://api.twitch.tv/kraken/users/" + value, function(json) {
     
@@ -52,11 +51,13 @@ $(document).ready(function(){
           desc = json.stream.channel.status; 
         } 
        
-
-        console.log(name);
-        console.log(desc);
-        console.log(logo);
-        console.log(link);
+        htmlStart += "<li class='individual-item'>" + logo + " " + name + "</li>";
+        // console.log(name);
+        // console.log(desc);
+        // console.log(logo);
+        // console.log(link);
+        console.log(htmlStart);
+        $(".test").html(htmlStart);
 
         }); //end of inner seond API call
 
