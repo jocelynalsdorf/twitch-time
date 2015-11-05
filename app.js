@@ -40,7 +40,7 @@ $(document).ready(function(){
       logo = json.logo;
       displayName = json.display_name;
       name = json.name;
-      link = json._links.self;
+      link = "http://www.twitch.tv/" + json.name;
       
       //get stream info: if not null, get channel status description 
         $.getJSON("https://api.twitch.tv/kraken/streams/" + name, function(json) {
@@ -51,13 +51,13 @@ $(document).ready(function(){
           desc = json.stream.channel.status; 
         } 
        
-        htmlStart += "<li class='individual-item'>" + logo + " " + name + "</li>";
+        htmlStart += "<li class='individual-item'><img class='profile-pic' src='" + logo + "'/>" + "<a href='" + link + "'>" + name + "</li>";
         // console.log(name);
         // console.log(desc);
         // console.log(logo);
         // console.log(link);
-        console.log(htmlStart);
-        $(".test").html(htmlStart);
+        console.log(htmlStart); 
+        $(".main-list").html(htmlStart);
 
         }); //end of inner seond API call
 
