@@ -25,29 +25,49 @@ $(document).ready(function(){
   });
 
  window.onload = function() {
-//get user info for each user
-       var name, logo, streaming, desc, link, displayName; 
-  $.getJSON("https://api.twitch.tv/kraken/users/freecodecamp", function(json) {
-  
-    logo = json.logo;
-    displayName = json.display_name;
-    name = json.name;
-    link = json._links.self;
-  
-      });
+//define users to loop over; set up vars for json response
+  var users = ["freecodecamp", "storbeck", "medrybw", "justin", "flosd","RobotCaleb","imaqtpie","noobs2ninjas","goldglove"];
+ 
 
-//get stream info: if not null, get channel status description 
-  $.getJSON("https://api.twitch.tv/kraken/streams/freecodecamp", function(json) {
-    //status = json.stream
-     //desc = json.stream.channel.status
-    console.log(json); 
-    console.log(status);
-
-      });
+  $.each(users, function(index, value) {
+         
+          var name, logo, streaming, desc, link, displayName; 
+   
 
 
+    // loop over array of users & get user info for each user
+    $.getJSON("https://api.twitch.tv/kraken/users/" + value, function(json) {
+    
+      logo = json.logo;
+      displayName = json.display_name;
+      name = json.name;
+      link = json._links.self;
+      
+      //get stream info: if not null, get channel status description 
+        $.getJSON("https://api.twitch.tv/kraken/streams/" + name, function(json) {
+         
+        status = json.stream;
 
-    };//end of window load api calls
+        if(status !== 'null'){
+          desc = json.stream.channel.status; 
+        } 
+       
+
+        console.log(name);
+        console.log(desc);
+        console.log(logo);
+        console.log(link);
+
+        }); //end of inner seond API call
+
+      });//end of first API call
+
+
+
+
+    });//end of each loop
+
+  };//end of window load api calls
  
 
 
