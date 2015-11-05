@@ -51,12 +51,16 @@ $(document).ready(function(){
           desc = json.stream.channel.status; 
         } 
        
-        htmlStart += "<li class='individual-item'><img class='profile-pic' src='" + logo + "'/>" + "<a href='" + link + "'>" + name + "</li>";
-        // console.log(name);
-        // console.log(desc);
-        // console.log(logo);
-        // console.log(link);
-        console.log(htmlStart); 
+       if (desc == undefined) {
+        htmlStart += "<li class='individual-item'><img class='profile-pic' src='" + logo + "'/>" + "<a href='" + link + "'>" + name + "<i class='material-icons'>visibility_off</i></li>";
+        } else {
+          htmlStart += "<li class='individual-item'><img class='profile-pic' src='" + logo + "'/>" + "<a href='" + link + "'>" + name + "<i class='material-icons'>visibility</i></li>";
+        }
+
+        console.log(desc);
+      
+        
+        
         $(".main-list").html(htmlStart);
 
         }); //end of inner seond API call
