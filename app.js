@@ -11,7 +11,7 @@ $(document).ready(function(){
           // If the list item does not contain the text phrase fade it out
           if ($(this).text().search(new RegExp(filter, "i")) < 0) {
               $(this).fadeOut();
-
+              $("hr").fadeOut();
           // Show the list item if the phrase matches 1
           } else {
               $(this).show();
@@ -22,6 +22,7 @@ $(document).ready(function(){
   });
   $("#reset-filter").on("click", function(){
     $(".individual-item").show();
+    $("hr").show();
 
   });
 
