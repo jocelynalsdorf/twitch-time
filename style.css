@@ -98,3 +98,6 @@ a.user-link:hover {
 i.material-icons.user-icon:hover {
     color: #78909C;
 }
+.hidden {
+  display:none;
+}

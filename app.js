@@ -51,14 +51,16 @@ $(document).ready(function(){
         } 
        
        if (desc == undefined) {
-        htmlStart += "<li class='individual-item'><img class='profile-pic' src='" + logo + "'/>" + "<a class='user-link' href='" + link + "'>" + name + "<i class='material-icons user-icon'>visibility_off</i></li><hr>";
+        htmlStart += "<li class='individual-item inactive'><img class='profile-pic' src='" + logo + "'/>" + "<a class='user-link' href='" + link + "'>" + name + "<i class='material-icons user-icon'>visibility_off</i></li><hr>";
         } else {
-          htmlStart += "<li class='individual-item'><img class='profile-pic' src='" + logo + "'/>" + "<a class='user-link' href='" + link + "'>" + name + "<i class='material-icons user-icon'>visibility</i><br><span class='stream-info'>" + desc + "</span></li><hr>";
+          htmlStart += "<li class='individual-item active'><img class='profile-pic' src='" + logo + "'/>" + "<a class='user-link' href='" + link + "'>" + name + "<i class='material-icons user-icon'>visibility</i><br><span class='stream-info'>" + desc + "</span></li><hr>";
+           
         }
       
         $(".main-list").html(htmlStart);
 
-        }); //end of inner seond API call
+
+     }); //end of inner second API call
 
       });//end of first API call
 
@@ -67,7 +69,18 @@ $(document).ready(function(){
   };//end of window load api calls
  
 
-
+  $("#active-tab").on("click", function(){
+    $("li.inactive").addClass("hidden").next("hr").addClass("hidden");
+     $("li.active").removeClass("hidden").next("hr").removeClass("hidden");;
+  });
+  $("#inactive-tab").on("click", function(){
+     $("li.active").addClass("hidden").next("hr").addClass("hidden");;
+     $("li.inactive").removeClass("hidden").next("hr").removeClass("hidden");;
+  });
+  $("#all-tab").on("click", function(){
+     $("li.active").removeClass("hidden").next("hr").removeClass("hidden");;;
+     $("li.inactive").removeClass("hidden").next("hr").removeClass("hidden");;;
+  });
 
 });
 
