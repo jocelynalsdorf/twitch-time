@@ -1,3 +1,5 @@
+
+
 .mdl-tabs {
   width:450px;
   margin: 0 auto;
@@ -10,7 +12,7 @@
 }
 .tab-footer {
   background-color: #78909C;
-  height: auto;
+  height: 12px;
   padding: 0;
   margin: 0;
   width:100%;
@@ -33,6 +35,8 @@
 }
 li {
   list-style: none;
+  padding-top: 6px;
+  padding-bottom: 10px;
 }
 
 .reset > i {
@@ -42,9 +46,50 @@ li {
 }
 
 .profile-pic {
-  width:30px;
-  height:30px;
-  border-radius:50%;
+  width:35px;
+  height:35px;
+  border-radius: 50%
+}
+.user-icon {
+  padding-right: 8px;
+  float:right;
+}
+/*.user-link {
+  margin-left: 3px;
+}*/
+.profile-pic {
+  text-align: left;
+  margin-right:8px;
+
 }
 
+.main-list {
+  padding-left:8px;
+}
 
+hr:last-child {
+  display: none;
+}
+
+a.mdl-navigation__link {
+    text-align: center;
+}
+
+span.mdl-layout-title {
+    text-align: center;
+}
+.stream-info {
+  padding-left:10px;
+  color:#78909C;
+}
+
+li > a:hover {
+  text-decoration: none;
+  color:#78909C
+}
+a {
+  text-decoration: none;
+}
+i.material-icons.user-icon:hover {
+    color: rgb(255,64,129);
+}

@@ -46,29 +46,21 @@ $(document).ready(function(){
         $.getJSON("https://api.twitch.tv/kraken/streams/" + name, function(json) {
          
         status = json.stream;
-
         if(status !== 'null'){
           desc = json.stream.channel.status; 
         } 
        
        if (desc == undefined) {
-        htmlStart += "<li class='individual-item'><img class='profile-pic' src='" + logo + "'/>" + "<a href='" + link + "'>" + name + "<i class='material-icons'>visibility_off</i></li>";
+        htmlStart += "<li class='individual-item'><img class='profile-pic' src='" + logo + "'/>" + "<a class='user-link' href='" + link + "'>" + name + "<i class='material-icons user-icon'>visibility_off</i></li><hr>";
         } else {
-          htmlStart += "<li class='individual-item'><img class='profile-pic' src='" + logo + "'/>" + "<a href='" + link + "'>" + name + "<i class='material-icons'>visibility</i></li>";
+          htmlStart += "<li class='individual-item'><img class='profile-pic' src='" + logo + "'/>" + "<a class='user-link' href='" + link + "'>" + name + "<i class='material-icons user-icon'>visibility</i><br><span class='stream-info'>" + desc + "</span></li><hr>";
         }
-
-        console.log(desc);
       
-        
-        
         $(".main-list").html(htmlStart);
 
         }); //end of inner seond API call
 
       });//end of first API call
-
-
-
 
     });//end of each loop
 
