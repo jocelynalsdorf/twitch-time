@@ -48,18 +48,20 @@ li {
 .profile-pic {
   width:35px;
   height:35px;
-  border-radius: 50%
+  border-radius: 50%;
+  border:2px solid rgb(255,64,129);
 }
 .user-icon {
   padding-right: 8px;
   float:right;
+
 }
 /*.user-link {
   margin-left: 3px;
 }*/
 .profile-pic {
   text-align: left;
-  margin-right:8px;
+  margin-right: 12px;
 
 }
 
@@ -81,15 +83,18 @@ span.mdl-layout-title {
 .stream-info {
   padding-left:10px;
   color:#78909C;
+  font-size:14px;
 }
 
-li > a:hover {
+a.user-link {
   text-decoration: none;
-  color:#78909C
+  color:#78909C;
+  font-size: 17px;
 }
-a {
+a.user-link:hover {
   text-decoration: none;
+  color: rgb(255,64,129);
 }
 i.material-icons.user-icon:hover {
-    color: rgb(255,64,129);
+    color: #78909C;
 }
