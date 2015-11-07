@@ -14,8 +14,7 @@ $(document).ready(function(){
               $("hr").fadeOut();
           // Show the list item if the phrase matches 1
           } else {
-              $(this).show();
-              
+              $(this).show();     
           }
       });
     }
@@ -23,16 +22,14 @@ $(document).ready(function(){
   $("#reset-filter").on("click", function(){
     $(".individual-item").show();
     $("hr").show();
-
   });
 
- window.onload = function() {
+window.onload = function() {
 //define users to loop over; set up vars for json response
   var users = ["freecodecamp", "storbeck", "medrybw", "justin", "flosd","RobotCaleb","imaqtpie","noobs2ninjas","goldglove"];
- var htmlStart = "";  
+  var htmlStart = "";  
 
-  $.each(users, function(index, value) {
-         
+  $.each(users, function(index, value) {       
     var name, logo, streaming, desc, link, displayName; 
    
     // loop over array of users & get user info for each user
@@ -60,19 +57,15 @@ $(document).ready(function(){
       
         $(".main-list").html(htmlStart);
 
-
-     }); //end of inner second API call
-
+       }); //end of inner second API call
       });//end of first API call
-
     });//end of each loop
-
   };//end of window load api calls
  
-
+//deals with only showing active and inactive based on tab selection and hides connected hr
   $("#active-tab").on("click", function(){
     $("li.inactive").addClass("hidden").next("hr").addClass("hidden");
-     $("li.active").removeClass("hidden").next("hr").removeClass("hidden");;
+    $("li.active").removeClass("hidden").next("hr").removeClass("hidden");;
   });
   $("#inactive-tab").on("click", function(){
      $("li.active").addClass("hidden").next("hr").addClass("hidden");;
